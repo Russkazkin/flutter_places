@@ -16,12 +16,19 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
         title: Text('Add a New Place'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text('User inputs...'),
           ElevatedButton.icon(
             icon: Icon(Icons.add),
             onPressed: () {},
             label: Text('Add Place'),
+            style: ElevatedButton.styleFrom(
+              elevation: 0,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              primary: Theme.of(context).accentColor,
+            ),
           )
         ],
       ),
