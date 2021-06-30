@@ -9,6 +9,8 @@ class AddPlaceScreen extends StatefulWidget {
 }
 
 class _AddPlaceScreenState extends State<AddPlaceScreen> {
+  final _titleController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,10 +18,25 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
         title: Text('Add a New Place'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('User inputs...'),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Title',
+                      ),
+                      controller: _titleController,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
           ElevatedButton.icon(
             icon: Icon(Icons.add),
             onPressed: () {},
