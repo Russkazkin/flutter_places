@@ -20,9 +20,11 @@ class _ImageInputState extends State<ImageInput> {
       source: ImageSource.camera,
       maxWidth: 600,
     );
+    final file = File(image.path);
     setState(() {
       _storedImage = File(image.path);
     });
+    file.copy(newPath);
   }
 
   @override
