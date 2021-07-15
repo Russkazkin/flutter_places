@@ -14,6 +14,13 @@ class GreatPlaces with ChangeNotifier {
 
   void addPlace(String title, File image) {
     var uuid = Uuid();
-    final newPlace = Place(id: uuid.v1(), title: Uuid, location: location, image: image)
+    final newPlace = Place(
+      id: uuid.v1(),
+      title: title,
+      location: null,
+      image: image,
+    );
+    _items.add(newPlace);
+    notifyListeners();
   }
 }
