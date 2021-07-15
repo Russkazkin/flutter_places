@@ -1,8 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/image_input.dart';
+import '../providers/great_places.dart';
 
 class AddPlaceScreen extends StatefulWidget {
   const AddPlaceScreen({Key key}) : super(key: key);
@@ -25,6 +27,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
     if (_titleController.text.isEmpty || _pickedImage == null) {
       return;
     }
+    Provider.of<GreatPlaces>(context, listen: false).addPlace(_titleController.text, _pickedImage);
   }
 
   @override
