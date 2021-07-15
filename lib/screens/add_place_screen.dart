@@ -27,7 +27,11 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
     if (_titleController.text.isEmpty || _pickedImage == null) {
       return;
     }
-    Provider.of<GreatPlaces>(context, listen: false).addPlace(_titleController.text, _pickedImage);
+    Provider.of<GreatPlaces>(context, listen: false).addPlace(
+      _titleController.text,
+      _pickedImage,
+    );
+    Navigator.of(context).pop();
   }
 
   @override
@@ -51,8 +55,12 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                       ),
                       controller: _titleController,
                     ),
-                    SizedBox(height: 10,),
-                    ImageInput(onSelectImage: _selectImage,),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ImageInput(
+                      onSelectImage: _selectImage,
+                    ),
                   ],
                 ),
               ),
@@ -60,14 +68,12 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
           ),
           ElevatedButton.icon(
             icon: Icon(Icons.add),
-            onPressed: () {},
+            onPressed: _savePlace,
             label: Text('Add Place'),
             style: ElevatedButton.styleFrom(
               elevation: 0,
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              primary: Theme
-                  .of(context)
-                  .accentColor,
+              primary: Theme.of(context).accentColor,
             ),
           )
         ],
